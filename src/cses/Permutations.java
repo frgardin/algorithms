@@ -1,25 +1,29 @@
 package cses;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.stream.LongStream;
 
 public class Permutations {
 
+private static void printSequence(int n) {
+        if (n == 2 || n == 3) {
+            System.out.print("NO SOLUTION") ;
+            return;
+        } 
+        StringBuilder sb = new StringBuilder();
+        for (int i = 2; i <= n; i = i + 2){
+            sb.append(i + " ");
+        }
+        for (int i = 1; i <= n; i = i + 2){
+            sb.append(i + " ");
+        }    
+        System.out.print(sb);
+        
+    }
+    
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        ArrayList<Integer> a = new ArrayList<>();
-
-        long n = in.nextLong();
-        HashMap<Integer, Integer> m = new HashMap<>();
-
-        LongStream.range(1, n + 1).forEach(i -> {
-
-
-
-        });
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printSequence(n);
     }
 
 }
