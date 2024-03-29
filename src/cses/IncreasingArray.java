@@ -11,10 +11,10 @@ public class IncreasingArray {
         int t = sc.nextInt();
         long sum = 0;
         long[] ar = new long[t];
+        ar[0] = sc.nextInt();
 
-        for (int i = 0; i < t; i++) {
+        for (int i = 1; i < t; i++) {
             ar[i] = sc.nextInt();
-            if (i == 0) continue;
             if (ar[i - 1] > ar[i]) {
                 sum += ar[i - 1] - ar[i];
                 ar[i] = ar[i - 1];
