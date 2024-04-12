@@ -1,31 +1,23 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int get_n(int n, int max) {
-    if (n % 2 == 0)     return get_n(n/2, ++max);
-    else if (n == 1)    return ++max;
-    else                return get_n(3 * n + 1, ++max); 
+int get_max(int n, int m) {
+    if (n % 2 == 0)     return get_max(n/2, ++m);
+    if (n == 1)         return m;
+    return get_max(3*n+1, ++m);
 }
 
 int main() {
-    int i, j, f;
+    int a, b;
 
-    while(cin >> i >> j) {
-            int ti = i < j ? i : j;
-        int tj = ti == i ? j : i;
+    while (scanf("%d %d", &a, &b) != EOF) {
+        int m = 0;
 
-        int max = 0;
-
-        for (int k = ti; k <= tj; k++) {
-            int m = get_n(k, 0);
-            if (m > max) {
-                max = m;
-            }
+        for (int n = a < b ? a : b; n <= (b > a ? b : a); n++) {
+            int mc = get_max(n, 1);
+            if (mc > m)     m = mc;
         }
-
-        cout << i << " " << j << " " << max;
-
-    } 
-    return 0;
+        printf("%d %d %d\n", a, b, m);
+    }
 }
