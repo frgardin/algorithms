@@ -4,8 +4,7 @@ using namespace std;
 
 int main() {
     string s;
-    scanf("%50s", &s);
-    cout << s;
-    //printf("Thank you, %s, and farewell!", s.c_str());
+    getline(cin, s);
+    cout << "Thank you, " << s << ", and farewell!\n";
     return 0;
 } 
