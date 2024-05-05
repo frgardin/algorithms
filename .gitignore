@@ -29,6 +29,6 @@ bin/
 .DS_Store
 
 ### Test ###
-*/input
-*/output
-*/test
+**/input
+**/output
+**/test
