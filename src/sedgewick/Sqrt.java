@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class StaticMethod {
+public class Sqrt {
 
     public static double sqrt(double c) {
         if (c < 0)
