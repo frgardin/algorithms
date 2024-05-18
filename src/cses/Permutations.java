@@ -24,6 +24,7 @@ private static void printSequence(int n) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         printSequence(n);
+        sc.close();
     }
 
 }

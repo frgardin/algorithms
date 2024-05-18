@@ -23,5 +23,6 @@ public class Repetitions {
             b = c;
         }
         System.out.println(r);
+        sc.close();
     }
 }

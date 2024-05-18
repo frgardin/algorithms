@@ -11,5 +11,6 @@ public class WeirdAlgorithm {
             n = n % 2 == 0 ? n / 2 : n * 3 + 1;
             System.out.printf("%d ", n);
         }
+        sc.close();
     }
 }
