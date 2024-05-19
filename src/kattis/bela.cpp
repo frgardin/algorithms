@@ -7,8 +7,7 @@ int main()
     int n;
     char b;
     scanf("%d %c", &n, &b);
-    unordered_map<char, pair<int, int>> mcp
-    {
+    unordered_map<char, pair<int, int>> mcp{
         {'A', {11, 11}},
         {'K', {4, 4}},
         {'Q', {3, 3}},
@@ -28,10 +27,7 @@ int main()
         getline(cin, s);
         c = s[0];
         d = s[1];
-        if (d == b)
-            acc += mcp[c].first;
-        else
-            acc += mcp[c].second;
+        acc += d == b ? mcp[c].first : mcp[c].second;
     }
     printf("%d", acc);
 }
