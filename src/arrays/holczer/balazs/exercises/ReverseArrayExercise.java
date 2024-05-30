@@ -1,4 +1,4 @@
-package arrays;
+package arrays.holczer.balazs.exercises;
 
 /*
 Reversing an array in-place exercise
@@ -41,8 +41,10 @@ public class ReverseArrayExercise {
 
     public static void main(String[] args) {
         int[] a = createRangeArray(10);
+        int[] b = a;
         System.out.println(Arrays.toString(a));
         solve(a);
         System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(b));
     }
 }

@@ -1,4 +1,4 @@
-package arrays;
+package arrays.holczer.balazs.theory;
 
 
 import java.util.List;
