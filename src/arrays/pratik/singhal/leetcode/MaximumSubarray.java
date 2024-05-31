@@ -36,39 +36,36 @@ Constraints:
 
 
 Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
- */
 
-import java.util.Arrays;
+Solution: Kadane’s algorithm
+ */
 
 public class MaximumSubarray {
 
     public static int maxSubArray(int[] nums) {
-        int max = nums[0];
-        int size = nums.length;
-        for (int i = 0; i < size; i++) {
-            for (int j = i; j < size; j++) {
-                int possibleMax = calcSumOfSubArray(nums, i, j);
-                if (possibleMax > max) {
-                    max = possibleMax;
-                }
+        int maxSoFar = nums[0];
+        int maxEndingHere = 0;
+        int i = 0;
+        while (i < nums.length) {
+            maxEndingHere += nums[i];
+            if (maxSoFar < maxEndingHere) {
+                maxSoFar = maxEndingHere;
             }
+            if (maxEndingHere < 0) {
+                maxEndingHere = 0;
+            }
+            i++;
         }
-        return max;
-    }
-
-    public static int calcSumOfSubArray(int[] nums, int index1, int index2) {
-        int sum = 0;
-        for (int i = index1; i <= index2; i++) {
-            sum += nums[i];
-        }
-        return sum;
+        return maxSoFar;
     }
 
     public static void main(String[] args) {
-        int[] n1 = {-2,1,-3,4,-1,2,1,-5,4};
+        int[] n1 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int[] n2 = {1};
-        int[] n3 = {5,4,-1,7,8};
+        int[] n3 = {5, 4, -1, 7, 8};
+        int[] n4 = {2, 3, 4, 5, 1};
 
+        System.out.println(maxSubArray(n4));
         System.out.println(maxSubArray(n1));
         System.out.println(maxSubArray(n2));
         System.out.println(maxSubArray(n3));
