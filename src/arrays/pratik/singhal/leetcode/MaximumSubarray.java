@@ -48,9 +48,7 @@ public class MaximumSubarray {
         int i = 0;
         while (i < nums.length) {
             maxEndingHere += nums[i];
-            if (maxSoFar < maxEndingHere) {
-                maxSoFar = maxEndingHere;
-            }
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
             if (maxEndingHere < 0) {
                 maxEndingHere = 0;
             }
