@@ -38,6 +38,22 @@ Constraints:
 Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
 Solution: Kadane’s algorithm
+
+PSEUDOCODE
+
+    Initialize:
+        max_so_far = INT_MIN
+        max_ending_here = 0
+
+    Loop for each element of the array
+
+      (a) max_ending_here = max_ending_here + a[i]
+      (b) if(max_so_far < max_ending_here)
+                max_so_far = max_ending_here
+      (c) if(max_ending_here < 0)
+                max_ending_here = 0
+    return max_so_far
+
  */
 
 public class MaximumSubarray {
