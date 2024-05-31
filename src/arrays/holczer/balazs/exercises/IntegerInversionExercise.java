@@ -6,9 +6,9 @@ public class IntegerInversionExercise {
         int reversed = 0;
         int remainder;
         while (n > 0) {
-           remainder = n % 10;
-           n = n / 10;
-           reversed = reversed * 10 + remainder;
+            remainder = n % 10;
+            n = n / 10;
+            reversed = reversed * 10 + remainder;
         }
         return reversed;
     }
