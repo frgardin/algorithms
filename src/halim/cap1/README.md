@@ -3,7 +3,7 @@
 ## I/O Sequences Only
 
 - [x] hello
-- [ ] carrots
+- [x] carrots
 - [ ] r2
 - [ ] thelastproblem
 
