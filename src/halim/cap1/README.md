@@ -11,7 +11,7 @@
 
 - [x] timeloop
 - [x] different
-- [ ] qaly
+- [x] qaly
 - [ ] tarifa
 
 ## Selection Only
