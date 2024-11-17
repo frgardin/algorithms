@@ -16,7 +16,7 @@
 
 ## Selection Only
 
-- [ ] moscowdream
+- [x] moscowdream
 - [ ] isithalloween
 - [ ] judgingmoose
 - [ ] provincesandgold
