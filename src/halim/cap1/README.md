@@ -10,7 +10,7 @@
 ## Repetition Only
 
 - [x] timeloop
-- [ ] different
+- [x] different
 - [ ] qaly
 - [ ] tarifa
 
