@@ -4,7 +4,7 @@
 
 - [x] hello
 - [x] carrots
-- [ ] r2
+- [x] r2
 - [ ] thelastproblem
 
 ## Repetition Only
