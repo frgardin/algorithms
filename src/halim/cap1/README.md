@@ -20,7 +20,7 @@
 - [x] isithalloween
 - [x] judgingmoose
 - [x] provincesandgold
-- [ ] quadrant
+- [x] quadrant
 - [ ] temperature
 
 
