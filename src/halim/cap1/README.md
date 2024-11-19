@@ -19,7 +19,7 @@
 - [x] moscowdream
 - [x] isithalloween
 - [x] judgingmoose
-- [ ] provincesandgold
+- [x] provincesandgold
 - [ ] quadrant
 - [ ] temperature
 
