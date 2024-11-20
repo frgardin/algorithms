@@ -27,7 +27,7 @@
 ## Multiple Test Cases + Selection
 
 - [x] oddities
-- [ ] eligibility
+- [x] eligibility
 - [ ] helpaphd
 - [ ] leftbeehind
 
