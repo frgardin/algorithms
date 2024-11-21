@@ -28,7 +28,7 @@
 
 - [x] oddities
 - [x] eligibility
-- [ ] helpaphd
+- [x] helpaphd
 - [ ] leftbeehind
 
 ## Control Flow (Solvable uder 7 minutes)
