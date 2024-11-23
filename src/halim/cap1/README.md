@@ -31,7 +31,7 @@
 - [x] helpaphd
 - [x] leftbeehind
 
-## Control Flow (Solvable uder 7 minutes)
+## Control Flow (Solvable under 7 minutes)
 
 - [x] statistics
 - [x] fizzbuzz
