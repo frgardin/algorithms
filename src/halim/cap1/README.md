@@ -33,7 +33,7 @@
 
 ## Control Flow (Solvable uder 7 minutes)
 
-- [ ] statistics
+- [x] statistics
 - [ ] fizzbuzz
 - [ ] licensetolaunch
 - [ ] oddgnome
