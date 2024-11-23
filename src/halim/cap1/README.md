@@ -36,7 +36,7 @@
 - [x] statistics
 - [x] fizzbuzz
 - [x] licensetolaunch
-- [ ] oddgnome
+- [x] oddgnome
 
 ## Function
 
