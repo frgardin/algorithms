@@ -40,7 +40,7 @@
 
 ## Function
 
-- [ ] mia
+- [x] mia
 - [ ] artichoke
 - [ ] digits
 - [ ] filip
