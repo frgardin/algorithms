@@ -1,14 +1,14 @@
 package halim.cap1;
 
 import java.io.File;
-import java.util.*;
+import java.util.Scanner;
 
 public class Mia {
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(new File("src/halim/cap1/file/mia.txt"));
 
-        while(true) {
+        while (true) {
             int s0 = sc.nextInt();
             int s1 = sc.nextInt();
             int r0 = sc.nextInt();
@@ -46,7 +46,7 @@ public class Mia {
                 if (r0 == r1) {
                     if (s0 > r0) {
                         System.out.println("Player 1 wins.");
-                    } else if (r0 > s0){
+                    } else if (r0 > s0) {
                         System.out.println("Player 2 wins.");
                     } else {
                         System.out.println("Tie.");
@@ -61,23 +61,15 @@ public class Mia {
                 continue;
             }
 
-            int maxS = Math.max(s0, s1);
-            int minS = Math.min(s0, s1);
-            int maxR = Math.max(r0, r1);
-            int minR = Math.min(r0, r1);
+            int p1 = Math.max(s0, s1) * 10 + Math.min(s0, s1);
+            int p2 = Math.max(r0, r1) * 10 + Math.min(r0, r1);
 
-            if (maxS > maxR) {
+            if (p1 > p2) {
                 System.out.println("Player 1 wins.");
-            } else if (maxS < maxR) {
+            } else if (p1 < p2) {
                 System.out.println("Player 2 wins.");
             } else {
-                if (minS > minR) {
-                    System.out.println("Player 1 wins.");
-                } else if (minS < minR){
-                    System.out.println("Player 2 wins.");
-                } else {
-                    System.out.println("Tie.");
-                }
+                System.out.println("Tie.");
             }
         }
     }
