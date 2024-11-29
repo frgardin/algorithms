@@ -14,7 +14,6 @@ public class ArticHoke {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double p, a, b, c, d, n;
-        ArrayList<Double> ar = new ArrayList<>();
         p = sc.nextDouble();
         a = sc.nextDouble();
         b = sc.nextDouble();
@@ -27,20 +26,18 @@ public class ArticHoke {
         double maxPrice = 0.0;
         double maxDecline = 0.0;
         double actualDecline = 0.0;
-        ar.add(price);
         for (int k = 2; k <= n; k++) {
             double newPrice = price(p, a, b, c, d, k);
-            if (newPrice > maxPrice) {
-                maxPrice = newPrice;
-            }
             if (newPrice < price) {
                 actualDecline = maxPrice - newPrice;
             } else if (newPrice > price) {
                 maxDecline = Math.max(actualDecline, maxDecline);
                 actualDecline = 0;
             }
-            price = newPrice;
-            ar.add(price);
+            if (newPrice > maxPrice) {
+                maxPrice = newPrice;
+            }
+            price = newPrice;   
         }
         System.out.printf("%.7f", maxDecline);
     }
