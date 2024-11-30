@@ -41,7 +41,7 @@
 ## Function
 
 - [x] mia
-- [ ] artichoke
+- [x] artichoke
 - [ ] digits
 - [ ] filip
 
