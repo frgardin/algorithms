@@ -42,7 +42,7 @@
 
 - [x] mia
 - [x] artichoke
-- [ ] digits
+- [x] digits
 - [ ] filip
 
 ## 1D Array Manipulation, Easier
