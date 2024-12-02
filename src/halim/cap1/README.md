@@ -48,7 +48,7 @@
 ## 1D Array Manipulation, Easier
 
 - [x] lostlineup
-- [ ] acm
+- [x] acm
 - [ ] cetiri
 - [ ] lineup
 
