@@ -5,18 +5,6 @@ import java.util.Scanner;
 
 public class Acm {
 
-    static class Question {
-        int min;
-        int count;
-        boolean right;
-
-        Question(int min) {
-            this.min = min;
-            this.right = false;
-            this.count = 0;
-        }
-    }
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
