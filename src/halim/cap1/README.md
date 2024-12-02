@@ -49,7 +49,7 @@
 
 - [x] lostlineup
 - [x] acm
-- [ ] cetiri
+- [x] cetiri
 - [ ] lineup
 
 ## Easy
