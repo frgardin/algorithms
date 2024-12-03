@@ -56,7 +56,7 @@
 
 - [x] hissingmicrophone
 - [x] batterup
-- [ ] hangingout
+- [x] hangingout
 - [ ] pokerhand
 - [ ] bubbletea
 - [ ] bossbatle
