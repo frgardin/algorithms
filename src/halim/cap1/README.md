@@ -55,7 +55,7 @@
 ## Easy
 
 - [x] hissingmicrophone
-- [ ] batterup
+- [x] batterup
 - [ ] hangingout
 - [ ] pokerhand
 - [ ] bubbletea
