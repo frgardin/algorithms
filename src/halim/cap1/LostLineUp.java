@@ -18,7 +18,7 @@ public class LostLineUp {
             i++;
         }
 
-        for (int v:ar) sb.append(v + " ");
+        for (int v:ar) sb.append(v).append(" ");
 
         System.out.println(sb);
     }

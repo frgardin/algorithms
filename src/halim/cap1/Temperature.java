@@ -11,8 +11,8 @@ public class Temperature {
         x = sc.nextInt();
         y = sc.nextInt();
 
-        if (x == 0 && y == 1)   System.out.printf("ALL GOOD");
-        else if (y == 1)        System.out.printf("IMPOSSIBLE");
+        if (x == 0 && y == 1)   System.out.print("ALL GOOD");
+        else if (y == 1)        System.out.print("IMPOSSIBLE");
         else                    System.out.printf("%.6f", x / (1.0 - y));
     }
 }
