@@ -12,4 +12,11 @@ WHERE id NOT IN (
     FROM Orders
 );
 
+-- solution3
+SELECT x.name AS Customers
+FROM Customers x
+LEFT JOIN Orders y
+ON x.id = y.customerId
+WHERE y.customerId IS NULL
+
 -- solution 2 is faster than 1
