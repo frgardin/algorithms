@@ -42,13 +42,30 @@ public class leetcode88 {
         }
     }
 
+    public static void anotherMerge(int[] nums1, int m, int[] nums2, int n) {
+        int nidx = n - 1;
+        int midx = m - 1;
+        int right = m + n - 1;
+
+        while(nidx >= 0) {
+            if (midx >= 0 && nums1[midx] > nums2[nidx]) {
+                nums1[right] = nums1[midx];
+                midx--;
+            } else {
+                nums1[right] = nums2[nidx];
+                nidx--;
+            }
+            right--;
+        }
+    }
+
     public static void main(String[] args) {
         int [] nums1 = {1, 2, 3, 0, 0, 0};
         int [] nums2 = {2, 5, 6};
         int m = nums1.length - nums2.length;
         int n = nums2.length;
 
-        merge(nums1, m, nums2, n);
+        anotherMerge(nums1, m, nums2, n);
 
         System.out.println(Arrays.toString(nums1));
     }
