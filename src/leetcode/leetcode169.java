@@ -36,6 +36,6 @@ public class leetcode169 {
 
     public static void main(String[] args) {
         int [] nums = {2,2,1,1,1,3,3};
-        System.out.println(nums[-1]);
+        System.out.println(majorityElementMooreVoting(nums));
     }
 }
