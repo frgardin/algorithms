@@ -13,6 +13,6 @@ public class leetcode169 {
                 return num;
             }
         }
-        return nums[0];
+        return 0;
     }
 }
