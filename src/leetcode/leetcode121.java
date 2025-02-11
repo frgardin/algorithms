@@ -9,9 +9,9 @@ public class leetcode121 {
         for (int price : prices) {
             if (buy > price) {
                 buy = price;
-            } else if (price - buy > profit) {
-                profit = price - buy;
+                continue;
             }
+            profit = Math.max(price - buy, profit);
         }
         return profit;
     }
