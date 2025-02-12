@@ -5,7 +5,6 @@ public class leetcode45 {
     public static int jump(int[] nums) {
         int n = nums.length;
         int[] visited = new int[n];
-        visited[0] = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; i + j < n && j <= nums[i]; j++) {
                 if (visited[i + j] == 0 && i + j != 0) {
@@ -15,6 +14,18 @@ public class leetcode45 {
             }
         }
         return visited[n - 1];
+    }
+
+    public static int jump2(int[] nums) {
+        int jumps = 0, currentEnd = 0, farthest = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            farthest = Math.max(farthest, i + nums[i]);
+            if (i == currentEnd) {
+                jumps++;
+                currentEnd = farthest;
+            }
+        }
+        return jumps;
     }
 
     public static void main(String[] args) {
