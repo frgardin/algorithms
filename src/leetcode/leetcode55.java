@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class leetcode55 {
 
+    // pass in 77 / 174
     public static boolean canJump(int[] nums) {
         for (int j = nums[0]; j > 0; j--) {
             if (j >= nums.length - 1) {
