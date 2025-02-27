@@ -19,6 +19,15 @@ public class leetcode557 {
     }
 
     public static String reverseWords2(String s) {
+        String[] split = s.split(EMPTY_SPACE_STRING);
+        StringBuilder sb = new StringBuilder();
+        for (String string : split) {
+            sb.append(new StringBuilder(string).reverse()).append(EMPTY_SPACE_STRING);
+        }
+        return sb.toString().trim();
+    }
+
+    public static String reverseWords3(String s) {
         char[] charArray = s.toCharArray();
         int n = charArray.length;
         StringBuilder reversed = new StringBuilder();
@@ -43,7 +52,7 @@ public class leetcode557 {
         return reversed.toString();
     }
 
-    public static String reverseWords3(String s) {
+    public static String reverseWords4(String s) {
         int n = s.length();
         StringBuilder reversed = new StringBuilder();
 
@@ -67,7 +76,7 @@ public class leetcode557 {
         return reversed.toString();
     }
 
-    public static String reverseWords4(String s) {
+    public static String reverseWords5(String s) {
         char[] chars = s.toCharArray();
         int j = 0;
         int n = chars.length;
@@ -94,5 +103,6 @@ public class leetcode557 {
         System.out.println(reverseWords2("Let's take LeetCode contest"));
         System.out.println(reverseWords3("Let's take LeetCode contest"));
         System.out.println(reverseWords4("Let's take LeetCode contest"));
+        System.out.println(reverseWords5("Let's take LeetCode contest"));
     }
 }
