@@ -35,6 +35,18 @@ public class leetcode219 {
         return false;
     }
 
+
+    public boolean containsNearbyDuplicate4(int[] nums, int k) {
+        HashMap<Integer, Integer> m = new HashMap<>();
+        int l = 0;
+        int n = nums.length;
+        while (l < n) {
+            if (m.containsKey(nums[l]) && Math.abs(m.get(nums[l]) - l) <= k) return true;
+            m.put(nums[l], l++);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         System.out.println(containsNearbyDuplicate(new int[]{1, 2, 3, 1, 2, 3}, 1));
         System.out.println(containsNearbyDuplicate2(new int[]{1, 2, 3, 1, 2, 3}, 1));
