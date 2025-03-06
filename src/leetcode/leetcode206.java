@@ -26,6 +26,18 @@ public class leetcode206 {
         return newHead;
     }
 
+    public static ListNode reverseList2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode temp = head.next;
+        ListNode reversed = reverseList2(head.next);
+        temp.next = head;
+        head.next = null;
+        return reversed;
+    }
+
     public static void main(String[] args) {
         ListNode listNode1 = new ListNode();
         listNode1.val = 1;
@@ -43,6 +55,6 @@ public class leetcode206 {
         listNode3.next = listNode4;
         listNode4.next = listNode5;
 
-        reverseList(listNode1);
+        reverseList2(listNode1);
     }
 }
