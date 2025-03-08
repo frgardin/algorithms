@@ -37,28 +37,31 @@ public class leetcode12 {
     }
 
     private static int mountRoman(int num, StringBuilder sb, int multiplier, HashMap<Integer, String> m) {
-        if ((num / multiplier) == 4) {
-            sb.append(m.get(multiplier));
+        if ((num / multiplier) > 5) {
+            if ((num / multiplier) == 9) {
+                sb.append(m.get(multiplier));
+                sb.append(m.get(10 * multiplier));
+                return num - 9 * multiplier;
+            }
             sb.append(m.get(5 * multiplier));
-            return num - 4 * multiplier;
+            return num - 5 * multiplier;
         }
-        if ((num / multiplier) == 9) {
-            sb.append(m.get(multiplier));
-            sb.append(m.get(10 * multiplier));
-            return num - 9 * multiplier;
+        if ((num / multiplier) < 5) {
+            if ((num / multiplier) == 4) {
+                sb.append(m.get(multiplier));
+                sb.append(m.get(5 * multiplier));
+                return num - 4 * multiplier;
+            }
+            int a = num / multiplier;
+            for (int i = 0; i < a; i++) {
+                sb.append(m.get(multiplier));
+                num -= multiplier;
+            }
+            return num;
         }
         if ((num / multiplier) == 5) {
             sb.append(m.get(5 * multiplier));
             return num - 5 * multiplier;
-        }
-        if ((num / multiplier) > 5) {
-            sb.append(m.get(5 * multiplier));
-            return num - 5 * multiplier;
-        }
-        int a = num / multiplier;
-        for (int i = 0; i < a; i++) {
-            sb.append(m.get(multiplier));
-            num -= multiplier;
         }
         return num;
     }
