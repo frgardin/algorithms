@@ -2,36 +2,36 @@ package leetcode;
 
 public class leetcode3208 {
 
-    //TODO: wa
     public static int numberOfAlternatingGroups(int[] colors, int k) {
-        int l = 0;
-        int r = 1;
+        int[] colorsCopy = new int[colors.length + k - 1];
+        for (int i = 0; i < colors.length + k - 1; i++) {
+            colorsCopy[i] = colors[i % colors.length];
+        }
+
+        int i = 0;
+        int j = 1;
         int c = 0;
-        while (l < colors.length && ((l != (r + 1) % colors.length))) {
-            if (colors[r] != colors[r - 1 == -1 ? colors.length - 1 : r - 1]) {
-                r = (r + 1) % colors.length;
+
+        while(j < colorsCopy.length) {
+            if (colorsCopy[j] != colorsCopy[j - 1]) {
+                j++;
                 continue;
             }
-            int diff = r - l > 0 ? r - l : colors.length - 1 - r + l;
+            int diff = j - i;
             if (diff >= k - 1) {
-                c += diff - k + 2;
+                c +=  diff - k + 1;
             }
-            l = r + 1;
-            r = l + 1;
+            i = j;
+            j = i + 1;
         }
-        r = (r + 1) % colors.length;
-        if (colors[r] != colors[r - 1 == -1 ? colors.length - 1 : r - 1]) {
-            c += colors.length;
-        } else {
-            int diff = colors.length - 1 - r + l;
-            if (diff >= k - 1) {
-                c = diff - k + 2;
-            }
+        int diff = j - i;
+        if (diff >= k - 1) {
+            c +=  diff - k + 1;
         }
         return c;
     }
 
     public static void main(String[] args) {
-        System.out.println(numberOfAlternatingGroups(new int[]{0,1,0,0,1,0,1}, 6));
+        System.out.println(numberOfAlternatingGroups(new int[]{0,1,1}, 3));
     }
 }
