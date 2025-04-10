@@ -3,37 +3,35 @@ package leetcode;
 public class leetcode3208 {
 
     public static int numberOfAlternatingGroups(int[] colors, int k) {
+        int[] colorsCopy = new int[colors.length + k - 1];
+        for (int i = 0; i < colors.length + k - 1; i++) {
+            colorsCopy[i] = colors[i % colors.length];
+        }
+
         int i = 0;
         int j = 1;
         int c = 0;
-        while (j < colors.length) {
-            if (colors[j] != colors[j - 1]) {
+
+        while(j < colorsCopy.length) {
+            if (colorsCopy[j] != colorsCopy[j - 1]) {
                 j++;
                 continue;
             }
-            if ((j - i) >= (k - 1)) {
-                c += j - i - k + 2;
+            int diff = j - i;
+            if (diff >= k - 1) {
+                c +=  diff - k + 1;
             }
-            i = j + 1;
-            j += 2;
+            i = j;
+            j = i + 1;
         }
-        if (j == colors.length) {
-            j -= 1;
-            if ((j - i) >= (k - 1)) {
-                c += j - i - k + 2;
-            }
-            if (colors[j] != colors[0]) {
-                for (int l = 0, r = 1; r < k; l++, r++) {
-                    if (colors[l] == colors[r]) {
-                        return c;
-                    }
-                }
-            }
+        int diff = j - i;
+        if (diff >= k - 1) {
+            c +=  diff - k + 1;
         }
         return c;
     }
 
     public static void main(String[] args) {
-        System.out.println(numberOfAlternatingGroups(new int[]{0,1,0,0,1,0,1}, 6));
+        System.out.println(numberOfAlternatingGroups(new int[]{0,1,1}, 3));
     }
 }
