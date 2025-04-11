@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.old;
 
 public class leetcode45 {
 
