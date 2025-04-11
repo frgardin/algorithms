@@ -1,14 +1,12 @@
-# Built-in Data Structures
+# Dynamic Arrays - ArrayList
 
-## Dynamic Arrays - ArrayList
-
-### Operations
+## Operations
 
 - add at the end O(1)
 - delete at the end O(1)
 - insert at the middle O(n)
 - delete at the middle O(n)
-- 
+
 
 ```java
 ArrayList<Integer> list = new ArrayList<Integer>(); // declare the dynamic array
