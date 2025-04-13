@@ -2,6 +2,20 @@ package leetcode.ds.arrays;
 
 public class BestTimeToBuyAndSellStock {
 
+    public static int bestSolutionMaxProfit(int[] prices) {
+        int buy = prices[0];
+        int profit = 0;
+
+        for (int price : prices) {
+            if (buy > price) {
+                buy = price;
+                continue;
+            }
+            profit = Math.max(price - buy, profit);
+        }
+        return profit;
+    }
+
     public static int maxProfit(int[] prices) {
         int max = 0;
         int i = 0, j = 1;
