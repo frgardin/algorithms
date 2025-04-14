@@ -1,6 +1,6 @@
-package helio.pedrini;
+package helio.pedrini.recursividade;
 
-public class Recursividade {
+public class Fatorial {
 
     public static int fatorial(int n) {
         int produto = 1;
