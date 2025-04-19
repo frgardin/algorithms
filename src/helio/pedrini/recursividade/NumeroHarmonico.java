@@ -9,7 +9,7 @@ public class NumeroHarmonico {
 
     public static double numeroHarmonico(int n) {
         double acc = 0.0;
-        for (int i = 1; i <= n;i++) {
+        for (int i = 1; i <= n; i++) {
             acc += 1.0 / i;
         }
         return acc;
