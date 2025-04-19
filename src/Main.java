@@ -6,7 +6,6 @@ public class Main {
 
         String s = "a";
 
-
         System.out.println(Optional.of(s)
                 .filter(s1 -> s1.startsWith("a"))
                 .map(String::toUpperCase)
