@@ -10,15 +10,15 @@ public class PermutacaoArray {
         v[b] = aux;
     }
 
-    private static void permutacao(int[]v, int k, int n) {
+    private static void permutacao(int[] v, int k, int n) {
         if (k == n - 1) {
             System.out.println(Arrays.toString(v));
-            return;
-        }
-        for (int i = k; i < n;i++) {
-            troca(v, k, i);
-            permutacao(v, k + 1, n);
-            troca(v, k, i);
+        } else {
+            for (int i = k; i < n;i++) {
+                troca(v, k, i);
+                permutacao(v, k + 1, n);
+                troca(v, k, i);
+            }
         }
     }
 
