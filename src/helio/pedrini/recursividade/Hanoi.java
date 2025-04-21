@@ -15,6 +15,6 @@ public class Hanoi {
     }
 
     public static void main(String[] args) {
-        hanoi(3, 'a', 'b', 'c');
+        hanoi(4, 'a', 'b', 'c');
     }
 }
