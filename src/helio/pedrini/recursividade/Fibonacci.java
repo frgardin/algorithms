@@ -3,25 +3,16 @@ package helio.pedrini.recursividade;
 public class Fibonacci {
 
     public static int fibonacci(int n) {
-        if (n == 0) return 0;
-        int i, anterior = 1, atual = 1, proximo;
-
-        for (i = 3; i <= n; i++) {
-            proximo = anterior + atual;
-            anterior = atual;
-            atual = proximo;
-        }
-        return atual;
-    }
-
-    public static int fibonacciRecursivo(int n) {
         if (n == 1 || n == 0) return n;
-        return fibonacciRecursivo(n - 1) + fibonacciRecursivo(n - 2);
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
 
     public static void main(String[] args) {
-        System.out.println(fibonacci(0));
-        System.out.println(fibonacciRecursivo(0));
+        int[] a = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        for (int i : a){
+            System.out.println("fibonacci(" + i + ") = " + fibonacci(i));
+        }
     }
 }
