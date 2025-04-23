@@ -16,7 +16,7 @@ public class Somatorio {
     }
 
     public static void main(String[] args) {
-        System.out.println(somatorio(10));
+        System.out.println(somatorio(11));
         System.out.println(somatorioRecursivo(10));
     }
 }
