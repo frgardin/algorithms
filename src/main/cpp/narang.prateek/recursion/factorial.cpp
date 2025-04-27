@@ -2,7 +2,6 @@
 // Created by gardi on 4/26/2025.
 //
 
-#include "factorial.h"
 #include <iostream>;
 using namespace std;
 
