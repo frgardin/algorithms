@@ -18,10 +18,22 @@ public class PasseioDoCavalo {
     }
 
     private static boolean movimentoValido(int[][] M, int novoX, int novoY, int n) {
-        return (novoX >= 0) && (novoX < n) && (novoY >= 0) && (novoY < n) && (M[novoX][novoY] == 0);
+        return (novoX >= 0) &&
+                (novoX < n) &&
+                (novoY >= 0) &&
+                (novoY < n) &&
+                (M[novoX][novoY] == 0);
     }
 
-    private static boolean passeio(int n, int x, int y, int passos, int[][] M, int[] moveX, int[] moveY) {
+    private static boolean passeio(
+            int n,
+            int x,
+            int y,
+            int passos,
+            int[][] M,
+            int[] moveX,
+            int[] moveY
+    ) {
         int k, novoX, novoY;
 
         if (passos == n * n) return true;
@@ -79,5 +91,4 @@ public class PasseioDoCavalo {
             System.out.println("Não existe solução.");
         }
     }
-
 }
