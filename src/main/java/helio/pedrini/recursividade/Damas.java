@@ -1,21 +1,42 @@
 package helio.pedrini.recursividade;
 
-import java.util.Arrays;
-
 public class Damas {
 
-    public static int[] damasBruteForce(int[] v, int k, int n) {
-        int[] a = new int[n];
+    private static void imprimirSolucao(int[] v, int n) {
+        int i;
+        for (i = 0; i < n; i++) {
+            System.out.printf("%d ", v[i]);
+        }
+        System.out.println();
+    }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                //todo finish this method
+    private static boolean posicaoValida(int[] v, int k) {
+        int i;
+
+        for (i = 0; i < k; i++) {
+            if ((v[i] == v[k]) || (Math.abs(v[i] - v[k]) == (k - i))) {
+                return false;
             }
         }
-        return a;
+        return true;
+    }
+
+    private static void damas(int[] v, int k, int n) {
+        int i;
+
+        if (k == n) {
+            imprimirSolucao(v, n);
+        } else {
+            for (i = 1; i <= n; i++) {
+                v[k] = i;
+                if (posicaoValida(v, k)) {
+                    damas(v, k + 1, n);
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(damasBruteForce(new int[100], 0, 4)));
+        damas(new int[8], 0, 8);
     }
 }
