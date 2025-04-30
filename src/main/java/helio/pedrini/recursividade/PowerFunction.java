@@ -10,10 +10,13 @@ public class PowerFunction {
     private static int powerFaster(int a, int n) {
         if (n == 0) return 1;
 
+        int subProblem = powerFaster(a, n / 2);
+        int subProblem1 = subProblem * subProblem;
+
         if ((n&1) == 1) {
-            return a * powerFaster(a, n / 2) * powerFaster(a, n / 2);
+            return a * subProblem1;
         } else {
-            return powerFaster(a, n / 2) * powerFaster(a, n / 2);
+            return subProblem1;
         }
     }
 
