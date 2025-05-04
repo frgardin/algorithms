@@ -77,11 +77,15 @@ public class leetcode2 {
             int add = acc % 10;
             int next = acc / 10;
             head.val += add;
-            if (next > 0) {
-                if (l1.next == null) {
-                    l1.next = new ListNode();
+            ListNode h = l1;
+            while (next > 0) {
+                if (h.next == null) {
+                    h.next = new ListNode();
                 }
-                l1.next.val += next;
+                int aux = (h.next.val + next);
+                h.next.val = aux % 10;
+                next = aux / 10;
+                h = h.next;
             }
             head.next = addTwoNumbers2(l1.next, l2.next);
             return head;
