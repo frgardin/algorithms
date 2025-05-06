@@ -36,10 +36,23 @@ public class BubbleSort {
         bubbleSortRec(a, n - 1);
     }
 
+    public static void bubbleSortRec2(int [] a, int n, int i) {
+        if (n == 1) {
+            return;
+        }
+        if (i == n - 1) {
+            bubbleSortRec2(a, n - 1, 0);
+            return;
+        }
+        if (compare(a[i], a[i+1])) {
+            swap(a, i, i+1);
+        }
+        bubbleSortRec2(a, n, i + 1);
+    }
 
     public static void main(String[] args) {
         int[] a = new int[]{5, 4, 3, 2,1};
-        bubbleSortRec(a, 5);
+        bubbleSortRec2(a, 5, 0);
         System.out.println(Arrays.toString(a));
     }
 }
