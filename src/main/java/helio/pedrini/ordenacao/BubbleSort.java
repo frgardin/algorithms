@@ -16,27 +16,27 @@ public class BubbleSort {
 
     public static void bubbleSort(int[] a, int n) {
         for (int times = 0; times < n; times++) {
-            for (int i = 0; i < n - times - 1;i++) {
-                if (compare(a[i], a[i+1])) {
-                    swap(a, i, i+1);
+            for (int i = 0; i < n - times - 1; i++) {
+                if (compare(a[i], a[i + 1])) {
+                    swap(a, i, i + 1);
                 }
             }
         }
     }
 
-    public static void bubbleSortRec(int [] a, int n) {
+    public static void bubbleSortRec(int[] a, int n) {
         if (n == 1) {
             return;
         }
-        for (int i = 0; i < n - 1;i++) {
-            if (compare(a[i], a[i+1])) {
-                swap(a, i, i+1);
+        for (int i = 0; i < n - 1; i++) {
+            if (compare(a[i], a[i + 1])) {
+                swap(a, i, i + 1);
             }
         }
         bubbleSortRec(a, n - 1);
     }
 
-    public static void bubbleSortRec2(int [] a, int n, int i) {
+    public static void bubbleSortRec2(int[] a, int n, int i) {
         if (n == 1) {
             return;
         }
@@ -44,14 +44,14 @@ public class BubbleSort {
             bubbleSortRec2(a, n - 1, 0);
             return;
         }
-        if (compare(a[i], a[i+1])) {
-            swap(a, i, i+1);
+        if (compare(a[i], a[i + 1])) {
+            swap(a, i, i + 1);
         }
         bubbleSortRec2(a, n, i + 1);
     }
 
 
-    public static void bubbleSortRec3(int [] a, int n, int i, int times) {
+    public static void bubbleSortRec3(int[] a, int n, int i, int times) {
         if (times == n) {
             return;
         }
@@ -59,15 +59,15 @@ public class BubbleSort {
             bubbleSortRec3(a, n, 0, times + 1);
             return;
         }
-        if (compare(a[i], a[i+1])) {
-            swap(a, i, i+1);
+        if (compare(a[i], a[i + 1])) {
+            swap(a, i, i + 1);
         }
         bubbleSortRec3(a, n, i + 1, times);
     }
 
     public static void main(String[] args) {
-        int[] a = new int[]{5, 4, 3, 2,1};
-        bubbleSortRec3(a, 5, 0 , 0);
+        int[] a = new int[]{5, 4, 3, 2, 1};
+        bubbleSortRec3(a, 5, 0, 0);
         System.out.println(Arrays.toString(a));
     }
 }
