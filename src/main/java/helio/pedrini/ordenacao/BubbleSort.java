@@ -50,9 +50,24 @@ public class BubbleSort {
         bubbleSortRec2(a, n, i + 1);
     }
 
+
+    public static void bubbleSortRec3(int [] a, int n, int i, int times) {
+        if (times == n) {
+            return;
+        }
+        if (i == n - times - 1) {
+            bubbleSortRec3(a, n, 0, times + 1);
+            return;
+        }
+        if (compare(a[i], a[i+1])) {
+            swap(a, i, i+1);
+        }
+        bubbleSortRec3(a, n, i + 1, times);
+    }
+
     public static void main(String[] args) {
         int[] a = new int[]{5, 4, 3, 2,1};
-        bubbleSortRec2(a, 5, 0);
+        bubbleSortRec3(a, 5, 0 , 0);
         System.out.println(Arrays.toString(a));
     }
 }
