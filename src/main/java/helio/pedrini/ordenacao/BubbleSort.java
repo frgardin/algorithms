@@ -24,9 +24,22 @@ public class BubbleSort {
         }
     }
 
+    public static void bubbleSortRec(int [] a, int n) {
+        if (n == 1) {
+            return;
+        }
+        for (int i = 0; i < n - 1;i++) {
+            if (compare(a[i], a[i+1])) {
+                swap(a, i, i+1);
+            }
+        }
+        bubbleSortRec(a, n - 1);
+    }
+
+
     public static void main(String[] args) {
         int[] a = new int[]{5, 4, 3, 2,1};
-        bubbleSort(a, 5);
+        bubbleSortRec(a, 5);
         System.out.println(Arrays.toString(a));
     }
 }
