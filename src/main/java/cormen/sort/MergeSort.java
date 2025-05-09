@@ -32,7 +32,7 @@ public class MergeSort {
         }
     }
 
-    private static void sort(int[] a, int k, int n) {
+    public static void sort(int[] a, int k, int n) {
         if (k >= n) {
             return;
         }
