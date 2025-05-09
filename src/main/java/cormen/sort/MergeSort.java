@@ -7,7 +7,7 @@ public class MergeSort {
     private static void merge(int[] a, int k, int n) {
         int m = (k + n) / 2;
         int i = k;
-        int j = m;
+        int j = m + 1;
         int[] t = new int[a.length];
         int l = 0;
         while(i <= m && j <= n) {
