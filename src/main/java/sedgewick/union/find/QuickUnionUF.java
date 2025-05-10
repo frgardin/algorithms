@@ -1,16 +1,13 @@
 package sedgewick.union.find;
 
-public class QuickUnionUF implements UF{
+public class QuickUnionUF implements UF {
 
     private final int[] id;
-    private final int N;
     private int count;
 
     public QuickUnionUF(int N) {
         this.id = new int[N];
-        this.N = N;
         this.count = N;
-
         for (int i = 0; i < N; i++) {
             id[i] = i;
         }
