@@ -1,15 +1,15 @@
 package sedgewick.union.find;
 
-import java.util.Arrays;
-
 public class QuickFindUF implements UF {
 
     private final int N;
     private final int[] id;
+    private int count;
 
     public QuickFindUF(int N) {
         this.id = new int[N];
         this.N = N;
+        this.count = N;
 
         for (int i = 0; i < N; i++) {
             id[i] = i;
@@ -23,7 +23,7 @@ public class QuickFindUF implements UF {
         }
         int pID = id[p];
         int qID = id[q];
-
+        count--;
         for (int i = 0; i < N; i++) {
             if (id[i] == pID) {
                 id[i] = qID;
@@ -49,6 +49,6 @@ public class QuickFindUF implements UF {
 
     @Override
     public int count() {
-        return (int) Arrays.stream(id).distinct().count();
+        return count;
     }
 }
