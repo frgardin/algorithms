@@ -1,6 +1,6 @@
 package sedgewick.union.find;
 
-import java.util.Set;
+import java.util.Arrays;
 
 public class QuickFindUF implements UF {
 
@@ -10,6 +10,10 @@ public class QuickFindUF implements UF {
     public QuickFindUF(int N) {
         this.id = new int[N];
         this.N = N;
+
+        for (int i = 0; i < N; i++) {
+            id[i] = i;
+        }
     }
 
     @Override
@@ -29,7 +33,7 @@ public class QuickFindUF implements UF {
 
     @Override
     public int find(int p) {
-        if (p >= N - 1) {
+        if (p > N - 1) {
             throw new IllegalArgumentException("The UF size is " + N);
         }
         return id[p];
@@ -37,7 +41,7 @@ public class QuickFindUF implements UF {
 
     @Override
     public boolean connected(int p, int q) {
-        if (p >= N - 1 || q >= N - 1) {
+        if (p > N - 1 || q > N - 1) {
             throw new IllegalArgumentException("The UF size is " + N);
         }
         return id[p] == id[q];
@@ -45,6 +49,6 @@ public class QuickFindUF implements UF {
 
     @Override
     public int count() {
-        return Set.of(id).size();
+        return (int) Arrays.stream(id).distinct().count();
     }
 }
