@@ -1,19 +1,13 @@
+import java.math.BigDecimal;
 import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
         // Testing =)
-
         String s = "a";
-
-        System.out.println(Optional.of(s)
-                .filter(s1 -> s1.startsWith("a"))
-                .map(String::toUpperCase)
-                .or(() -> getString().describeConstable()));
-    }
-
-    private static String getString() {
-        System.out.println("I am passing here");
-        return "trouxa";
+        BigDecimal bigDecimal1 = new BigDecimal("0.1");
+        BigDecimal bigDecimal2 = new BigDecimal("0.7");
+        System.out.println(0.1 + 0.7);
+        System.out.println(bigDecimal1.add(bigDecimal2));
     }
 }
