@@ -32,6 +32,6 @@ class UFTest {
     }
 
     private static Stream<UF> provideUF() {
-        return Stream.of(new QuickFindUF(N), new QuickUnionUF(N));
+        return Stream.of(new QuickFindUF(N), new QuickUnionUF(N), new QuickUnionTry(N));
     }
 }
