@@ -16,7 +16,7 @@ public class leetcode3335 {
             if (c == 'z') {
                 sb.append("ab");
             } else {
-                sb.append(c + 1);
+                sb.append((char) (c + 1));
             }
         }
 
