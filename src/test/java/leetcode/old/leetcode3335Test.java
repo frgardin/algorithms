@@ -32,4 +32,18 @@ class leetcode3335Test {
         assertEquals(5, result);
     }
 
+
+    @Test
+    void shouldMapTotalCharactersInStringAfterTransformations3() {
+        //given
+        String s = "jqktcurgdvlibczdsvnsg";
+        int t = 7517;
+
+        //when
+        int result = leetcode3335.lengthAfterTransformations(s, t);
+
+        //then
+        assertEquals(5, result);
+    }
+
 }
