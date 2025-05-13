@@ -3,23 +3,19 @@ package leetcode.old;
 public class leetcode3335 {
 
     public static int lengthAfterTransformations(String s, int t) {
-        if (t == 0) {
-            return s.length();
+        int c = 0;
+        int i = 0;
+        while(i < s.length()) {
+            c += evaluate(s.charAt(i), t);
+            i++;
         }
-        return lengthAfterTransformations(transform(s), t - 1);
+        return c;
     }
 
-    private static String transform(String s) {
-        StringBuilder sb = new StringBuilder();
-
-        for (char c : s.toCharArray()) {
-            if (c == 'z') {
-                sb.append("ab");
-            } else {
-                sb.append((char) (c + 1));
-            }
+    private static int evaluate(char c, int t) {
+        if ('z' - c > t) {
+            return 1;
         }
-
-        return sb.toString();
+        return evaluate('a', t - 'z' + c) + evaluate('b', t - 'z' + c);
     }
 }
