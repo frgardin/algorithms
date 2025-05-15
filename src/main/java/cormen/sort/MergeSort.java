@@ -4,47 +4,55 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-    private static void merge(int[] a, int k, int n) {
-        int m = (k + n) / 2;
-        int i = k;
-        int j = m + 1;
-        int[] t = new int[a.length];
-        int l = 0;
-        while(i <= m && j <= n) {
-            if (a[i] < a[j]) {
-                t[l++] = a[i++];
+    private static void merge(int[] a, int lo, int mid, int hi) {
+        int left = lo;
+        int right = mid + 1;
+        int[] temp = new int[a.length];
+        int tempIndex = 0;
+
+        while (left <= mid && right <= hi) {
+            if (a[left] < a[right]) {
+                temp[tempIndex] = a[left];
+                left++;
             } else {
-                t[l++] = a[j++];
+                temp[tempIndex] = a[right];
+                right++;
             }
+            tempIndex++;
         }
 
-        while (i <= m) {
-            t[l++] = a[i++];
+        while (left <= mid) {
+            temp[tempIndex] = a[left];
+            left++;
+            tempIndex++;
         }
 
-        while(j <= n) {
-            t[l++] = a[j++];
+        while (right <= hi) {
+            temp[tempIndex] = a[right];
+            right++;
+            tempIndex++;
         }
 
-        int p = 0;
-        for(int x = k; x <= n;x++) {
-            a[x] = t[p++];
+        tempIndex = 0;
+
+        for (int i = lo; i <= hi;i++) {
+            a[i] = temp[tempIndex];
+            tempIndex++;
         }
     }
 
-    public static void sort(int[] a, int k, int n) {
-        if (k >= n) {
+    public static void sort(int[] a, int lo, int hi) {
+        if (lo >= hi)
             return;
-        }
-        int mid = (k + n) / 2;
-        sort(a, mid + 1, n);
-        sort(a, k, mid);
-        merge(a, k, n);
+        int mid = (lo + hi) / 2;
+        sort(a, mid + 1, hi);
+        sort(a, lo, mid);
+        merge(a, lo, mid, hi);
     }
 
     public static void main(String[] args) {
-        int[]a = new int[]{5, 4, 3, 2, 1};
-        sort(a, 0, a.length- 1);
+        int[] a = new int[]{5, 4, 3, 2, 1};
+        sort(a, 0, a.length - 1);
         System.out.println(Arrays.toString(a));
     }
 }
