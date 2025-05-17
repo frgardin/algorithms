@@ -1,4 +1,4 @@
-package sedgewick.union.find;
+package com.algorithms.old.find;
 
 import com.algorithms.find.QuickFindUF;
 import com.algorithms.find.QuickUnionTry;

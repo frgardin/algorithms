@@ -1,4 +1,4 @@
-package leetcode.old;
+package com.algorithms.old;
 
 import com.algorithms.leetcode.old.leetcode2900;
 import org.junit.jupiter.api.Test;

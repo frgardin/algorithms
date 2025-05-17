@@ -1,4 +1,4 @@
-package leetcode.old;
+package com.algorithms.old;
 
 import com.algorithms.leetcode.old.leetcode3335;
 import org.junit.jupiter.api.Disabled;
