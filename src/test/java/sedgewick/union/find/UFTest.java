@@ -1,5 +1,9 @@
 package sedgewick.union.find;
 
+import com.algorithms.find.QuickFindUF;
+import com.algorithms.find.QuickUnionTry;
+import com.algorithms.find.QuickUnionUF;
+import com.algorithms.find.UF;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 

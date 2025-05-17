@@ -1,5 +1,6 @@
 package leetcode.old;
 
+import com.algorithms.leetcode.old.leetcode2900;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
