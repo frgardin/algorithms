@@ -24,16 +24,16 @@ public class p2048 {
         if (cmd == 0) {
             int l = 0;
             while (l < 4) {
-                int c = 1;
-                while (c < 4) {
-                    if (a[l][c - 1] == a[l][c]) {
-                        a[l][c - 1] = a[l][c] * 2;
-                        a[l][c] = 0;
-                    } else if (a[l][c - 1] == 0) {
-                        a[l][c - 1] = a[l][c];
-                        a[l][c] = 0;
+                int c = 2;
+                while (c >= 0) {
+                    if (a[l][c + 1] == a[l][c]) {
+                        a[l][c] = a[l][c] * 2;
+                        a[l][c + 1] = 0;
+                    } else if (a[l][c] == 0 && a[l][c+1] != 0) {
+                        a[l][c] = a[l][c + 1];
+                        a[l][c + 1] = 0;
                     }
-                    c++;
+                    c--;
                 }
                 l++;
             }
@@ -46,7 +46,6 @@ public class p2048 {
 
         }
         i = 0;
-        j = 0;
         StringBuilder sb = new StringBuilder();
         while (i < 4) {
             j =0;
