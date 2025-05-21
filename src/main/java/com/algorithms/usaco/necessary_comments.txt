@@ -1,0 +1,5 @@
+/*
+ID: gardinf1
+LANG: JAVA
+TASK: test
+*/
