@@ -1,4 +1,4 @@
-/*
+package com.algorithms.usaco;/*
 ID: gardinf1
 LANG: JAVA
 TASK: speeding
@@ -43,37 +43,30 @@ class speeding {
         int ni = 0;
         int mi = 0;
 
-        List<Pair> nl = new ArrayList<>();
-        List<Pair> ml = new ArrayList<>();
-
-        while (ni++ < n) {
-            StringTokenizer nst = new StringTokenizer(br.readLine());
-            nl.add(Pair.of(Integer.parseInt(nst.nextToken()), Integer.parseInt(nst.nextToken())));
-        }
-        while (mi++ < m) {
-            StringTokenizer mst = new StringTokenizer(br.readLine());
-            ml.add(Pair.of(Integer.parseInt(mst.nextToken()), Integer.parseInt(mst.nextToken())));
-        }
-
-        ni = 0;
-        mi = 0;
-        int nii = nl.get(0).first;
-        int mii = 0;
+        List<Integer> nl = new ArrayList<>(100);
+        List<Integer> ml = new ArrayList<>(100);
         int max = 0;
-        while (nii < 100) {
-            while (mii < nii) {
-                max = Math.max(max, ml.get(mi).second - nl.get(ni).second);
-                mii += ml.get(mi).first;
-                mi++;
+        while (ni < 100) {
+            StringTokenizer nst = new StringTokenizer(br.readLine());
+            int nLen = Integer.parseInt(nst.nextToken());
+            int nSpeed = Integer.parseInt(nst.nextToken());
+            for (int i = ni; i < ni + nLen; i++) {
+                nl.add(nSpeed);
             }
-            ni++;
-            nii += nl.get(ni).first;
+            ni += nLen;
+        }
+        while (mi < 100) {
+            StringTokenizer nst = new StringTokenizer(br.readLine());
+            int mLen = Integer.parseInt(nst.nextToken());
+            int mSpeed = Integer.parseInt(nst.nextToken());
+            for (int i = mi; i < mi + mLen; i++) {
+                ml.add(mSpeed);
+            }
+            mi += mLen;
         }
 
-        while (mii < nii) {
-            max = Math.max(max, ml.get(mi).second - nl.get(ni).second);
-            mii += ml.get(mi).first;
-            mi++;
+        for (int i = 0; i < 100; i++) {
+            max = Math.max(max, ml.get(i) - nl.get(i));
         }
 
         pw.print(max);
