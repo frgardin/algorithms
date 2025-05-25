@@ -1,4 +1,4 @@
-package com.algorithms.halim.cap1;
+package com.algorithms.halim.cap2;
 
 import java.util.*;
 
