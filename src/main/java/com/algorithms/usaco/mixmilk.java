@@ -67,13 +67,7 @@ public class mixmilk {
             actual = (actual + 1) == 4 ? 1 : (actual + 1);
         }
 
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(r1);
-        sb.append('\n');
-        sb.append(r2);
-        sb.append('\n');
-        sb.append(r3);
+        String sb = String.valueOf(r1) + '\n' + r2 + '\n' + r3;
 
         pw.print(sb);
         br.close();
