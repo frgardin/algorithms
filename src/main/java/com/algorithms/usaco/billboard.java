@@ -44,34 +44,34 @@ public class billboard {
 		int deltay2 = 0;
 
 		if (x1min >= x3min && x1min <= x3max) {
-			deltax1 = Math.max(Math.abs(x1min - x3max), Math.abs(x1min- x1max));
+			deltax1 = Math.min(Math.abs(x1min - x3max), Math.abs(x1min- x1max));
 		} else if (x1max >= x3min && x1max <= x3max) {
-			deltax1 = Math.max(Math.abs(x1max - x3min), Math.abs(x1min- x1max));
+			deltax1 = Math.min(Math.abs(x1max - x3min), Math.abs(x1min- x1max));
 		} else if (x1min <= x3min && x1max >= x3max) {
 			deltax1 = Math.abs(x3max - x3min);
 		}
 
 		if (y1min >= y3min && y1min <= y3max) {
-			deltay1 = Math.max(Math.abs(y1min - y3max), Math.abs(y1min- y1max));
+			deltay1 = Math.min(Math.abs(y1min - y3max), Math.abs(y1min- y1max));
 		} else if (y1max >= y3min && y1max <= y3max) {
-			deltay1 = Math.max(Math.abs(y1max - y3min), Math.abs(y1min- y1max));
+			deltay1 = Math.min(Math.abs(y1max - y3min), Math.abs(y1min- y1max));
 		} else if (y1min <= y3min && y1max >= y3max) {
 			deltay1 = Math.abs(y3max - y3min);
 		}
 
 
 		if (x2min >= x3min && x2min <= x3max) {
-			deltax2 = Math.max(Math.abs(x2min - x3max), Math.abs(x2min- x2max));
+			deltax2 = Math.min(Math.abs(x2min - x3max), Math.abs(x2min- x2max));
 		} else if (x2max >= x3min && x2max <= x3max) {
-			deltax2 = Math.max(Math.abs(x2max - x3min), Math.abs(x2min- x2max));
+			deltax2 = Math.min(Math.abs(x2max - x3min), Math.abs(x2min- x2max));
 		} else if (x2min <= x3min && x2max >= x3max) {
 			deltax2 = Math.abs(x3max - x3min);
 		}
 
 		if (y2min >= y3min && y2min <= y3max) {
-			deltay2 = Math.max(Math.abs(y2min - y3max), Math.abs(y2min- y2max));
+			deltay2 = Math.min(Math.abs(y2min - y3max), Math.abs(y2min- y2max));
 		} else if (y2max >= y3min && y2max <= y3max) {
-			deltay2 = Math.max(Math.abs(y2max - y3min), Math.abs(y2min- y2max));
+			deltay2 = Math.min(Math.abs(y2max - y3min), Math.abs(y2min- y2max));
 		} else if (y2min <= y3min && y2max >= y3max) {
 			deltay2 = Math.abs(y3max - y3min);
 		}
