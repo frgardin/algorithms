@@ -1,3 +1,4 @@
+package com.algorithms.usaco;
 
 import java.io.*;
 import java.util.*;
