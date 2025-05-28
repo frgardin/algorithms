@@ -1,9 +1,9 @@
 package com.algorithms.old.find;
 
 import com.algorithms.find.QuickFindUF;
-import com.algorithms.find.QuickUnionTry;
 import com.algorithms.find.QuickUnionUF;
 import com.algorithms.find.UF;
+import com.algorithms.find.WeightedQuickUnionUF;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -36,6 +36,6 @@ class UFTest {
     }
 
     private static Stream<UF> provideUF() {
-        return Stream.of(new QuickFindUF(N), new QuickUnionUF(N), new QuickUnionTry(N));
+        return Stream.of(new QuickFindUF(N), new QuickUnionUF(N), new WeightedQuickUnionUF(N));
     }
 }
