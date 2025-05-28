@@ -1,9 +1,9 @@
 package com.algorithms.old.find;
 
-import com.algorithms.find.QuickFindUF;
-import com.algorithms.find.QuickUnionUF;
-import com.algorithms.find.UF;
-import com.algorithms.find.WeightedQuickUnionUF;
+import com.algorithms.sedgewick.find.QuickFindUF;
+import com.algorithms.sedgewick.find.QuickUnionUF;
+import com.algorithms.sedgewick.find.UF;
+import com.algorithms.sedgewick.find.WeightedQuickUnionUF;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 

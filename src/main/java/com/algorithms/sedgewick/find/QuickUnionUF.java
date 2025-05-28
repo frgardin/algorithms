@@ -1,4 +1,4 @@
-package com.algorithms.find;
+package com.algorithms.sedgewick.find;
 
 public class QuickUnionUF implements UF{
     protected int[] id;

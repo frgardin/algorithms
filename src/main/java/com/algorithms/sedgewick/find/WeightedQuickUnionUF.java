@@ -1,4 +1,4 @@
-package com.algorithms.find;
+package com.algorithms.sedgewick.find;
 
 public class WeightedQuickUnionUF extends QuickUnionUF implements UF{
     private int[]sz;
