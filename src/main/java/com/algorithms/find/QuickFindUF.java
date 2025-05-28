@@ -2,8 +2,8 @@ package com.algorithms.find;
 
 public class QuickFindUF implements UF{
 
-    private int[] id;
-    private int N;
+    private final int[] id;
+    private final int N;
     private int count;
 
     public QuickFindUF(int N) {
