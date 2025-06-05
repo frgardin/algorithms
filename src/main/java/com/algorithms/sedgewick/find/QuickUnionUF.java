@@ -1,24 +1,29 @@
-package com.algorithms.find;
+package com.algorithms.sedgewick.find;
 
-public class QuickUnionUF implements UF {
-
-    private final int[] id;
-    private int count;
+public class QuickUnionUF implements UF{
+    protected int[] id;
+    protected final int N;
+    protected int count;
 
     public QuickUnionUF(int N) {
+        this.N=N;
+        this.count=N;
         this.id = new int[N];
-        this.count = N;
+
         for (int i = 0; i < N; i++) {
-            id[i] = i;
+            this.id[i] = i;
         }
     }
 
-
     @Override
     public void union(int p, int q) {
-        if(find(p) == find(q)) return;
+        int pRoot = find(p);
+        int qRoot = find(q);
+
+        if (pRoot == qRoot) return;
+
+        id[qRoot] = pRoot;
         count--;
-        id[p] = q;
     }
 
     @Override
