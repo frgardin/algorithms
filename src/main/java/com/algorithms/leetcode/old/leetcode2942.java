@@ -11,14 +11,8 @@ public class leetcode2942 {
         for (int i = 0; i<words.length;i++) {
             String word = words[i];
 
-            int j = 0;
-            char[] cs = word.toCharArray();
-            while(j < cs.length) {
-                if (cs[j] == x) {
-                    l.add(i);
-                    break;
-                }
-                j++;
+            if (word.indexOf(x) != -1) {
+                l.add(i);
             }
         }
 
