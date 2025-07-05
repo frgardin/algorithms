@@ -1,4 +1,4 @@
-package com.algorithms.codechef.roadmap.learn.dsa.stackandqueues;
+package com.algorithms.codechef.roadmap.learn.dsa.stack;
 
 import java.util.Scanner;
 

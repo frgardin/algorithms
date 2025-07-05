@@ -1,7 +1,6 @@
-package com.algorithms.codechef.roadmap.learn.dsa.stackandqueues;
+package com.algorithms.codechef.roadmap.learn.dsa.stack;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 class DecimalToBinary {
     static final int MAX_SIZE = 101;
