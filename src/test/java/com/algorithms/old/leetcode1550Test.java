@@ -1,6 +1,6 @@
 package com.algorithms.old;
 
-import com.algorithms.leetcode.old.leetcode1550;
+import com.algorithms.leetcode.leetcode1550;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

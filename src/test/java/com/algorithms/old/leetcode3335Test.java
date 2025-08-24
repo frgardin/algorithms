@@ -1,6 +1,6 @@
 package com.algorithms.old;
 
-import com.algorithms.leetcode.old.leetcode3335;
+import com.algorithms.leetcode.leetcode3335;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
