@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 //https://leetcode.com/problems/find-eventual-safe-states/
+// needs to improve time
 public class leetcode802 {
 
         public List<Integer> eventualSafeNodes(int[][] graph) {
