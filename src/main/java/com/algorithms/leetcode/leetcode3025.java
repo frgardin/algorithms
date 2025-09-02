@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 
 
-//TODO: is failing, need to improve
+//TODO: is failing, need to improve [[1,5],[2,0],[5,5]]
 public class leetcode3025 {
     public int numberOfPairs(int[][] points) {
         PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>(){
