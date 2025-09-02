@@ -1,48 +1,51 @@
 package com.algorithms.leetcode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class leetcode1792 {
 
-    static class Pair {
-        int i;
-        double v;
+    public static double maxAverageRatio(int[][] classes, int extraStudents) {
 
-        Pair(int i, double v) {
-            this.i = i;
-            this.v = v;
-        }
-    }
-
-    public double maxAverageRatio(int[][] classes, int extraStudents) {
-        
         double n = classes.length;
         double acc = 0.0;
-        
-        while (extraStudents>0) {
-            Pair p = new Pair(-1, Double.MIN_VALUE);
-            for (int i =0;i<n;i++) {
-                double v = getAvg(classes[i], 1)-getAvg(classes[i], 0);
-                if (p.v<v){
-                    p.i=i;
-                    p.v=v;
-                }
+        PriorityQueue<double[]> pq = new PriorityQueue<>(new Comparator<double[]>() {
+            public int compare(double[] a, double[] b) {
+                if (a[0] < b[0])
+                    return 1;
+                if (a[0] > b[0])
+                    return -1;
+                return 0;
             }
-            classes[p.i][0]++;
-            classes[p.i][1]++;
+        });
+
+        for (int i = 0; i < n; i++) {
+            double pass = classes[i][0];
+            double total = classes[i][1];
+            double inc = (pass + 1.0) / (total + 1.0) - pass / total;
+            pq.offer(new double[] { inc, pass, total });
+        }
+
+        while (extraStudents > 0) {
+            double[] top = pq.poll();
+
+            double pass = top[1] + 1;
+            double total = top[2] + 1;
+            double inc = (pass + 1.0) / (total + 1.0) - pass / total;
+
+            pq.offer(new double[] { inc, pass, total });
             extraStudents--;
         }
-        
-        for (int i =0;i<n;i++){
-            acc+=getAvg(classes[i],0);
-        }
-        return acc/n;
-    }
 
-    private static double getAvg(int[] clazz, int extraStudents) {
-        return ((double) clazz[0] + (double) extraStudents) / ((double) clazz[1] + (double) extraStudents);
+        for (double[] v : pq) {
+            acc += v[1] / v[2];
+        }
+        return acc / n;
     }
 
     public static void main(String[] args) {
-        System.out.println(new leetcode1792().maxAverageRatio(new int[][]{{2,4},{3,9},{4,5},{2,10}}, 4));
+        System.out.println(
+                new leetcode1792().maxAverageRatio(new int[][] { { 2, 4 }, { 3, 9 }, { 4, 5 }, { 2, 10 } }, 4));
 
     }
 }
