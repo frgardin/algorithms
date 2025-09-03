@@ -29,24 +29,22 @@ class FindArrayMin {
             }
 
             int min=Integer.MAX_VALUE;
-            for(int i : aa) {
-                for (int j : ab) {
-                    for (int k : ac) {
-                        min=Math.min(f(i, j, k), min);
-                    }
-                }
+            int i=0,j=0,k=0;
+
+            while(i<na && j<nb && k<nc) {
+                int a=aa[i], b=ab[j],c=ac[k];
+
+                int curMin=Math.min(Math.min(a,b), c);
+                int curMax=Math.max(Math.max(a,b), c);
+                min=Math.min(min, curMax-curMin);
+
+                if (curMin == a)        i++;
+                else if (curMin == b)   j++;
+                else                    k++;
             }
+
+
             System.out.println(min);
         }
-    }
-
-    private static int f(int i, int j, int k) {
-        return Math.max(
-                Math.max(
-                        Math.abs(i-j),
-                        Math.abs(i-k)
-                ),
-                Math.abs(j-k)
-        );
     }
 }
