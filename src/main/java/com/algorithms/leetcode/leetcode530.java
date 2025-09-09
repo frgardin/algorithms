@@ -7,7 +7,9 @@ public class leetcode530 {
             return Integer.MAX_VALUE;
 
         return Math.min(
-                Math.min(getMin(root, root.val), getMinimumDifference(root.left)),
+                Math.min(
+                        getMin(root, root.val),
+                        getMinimumDifference(root.left)),
                 getMinimumDifference(root.right));
     }
 
