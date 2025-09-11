@@ -1,6 +1,8 @@
 package com.algorithms.leetcode;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class leetcode1 {
 
@@ -22,13 +24,17 @@ public class leetcode1 {
 
     public static int[] twoSum2(int[] nums, int target) {
         Map<Integer, Integer> m = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (m.containsKey(nums[i])) {
-                return new int[]{m.get(nums[i]), i};
+        int n = nums.length;
+
+        for (int i = 0;i<n;i++) {
+            int diff=target-nums[i];
+
+            if (m.containsKey(diff)) {
+                return new int[]{i, m.get(diff)};
             }
-            m.put(target - nums[i], i);
+            m.put(nums[i], i);
         }
-        return new int[0];
+        return new int[]{};
     }
 
     public static void main(String[] args) {
