@@ -6,51 +6,65 @@ public class leetcode1769 {
         int n = boxes.length();
         int[] ans = new int[n];
 
-        int rightCellsCounter = 0;
-        int pointsAt0 = 0;
+        // rightCount = number of balls to the right of position 0
+        // rightCost = initial cost to move all balls on the right to position 0
+        int rightCount = 0;
+        int rightCost = 0;
 
+        // Precompute: count balls and total cost to move them to index 0
         for (int i = 1; i < n; i++) {
             if (boxes.charAt(i) == '1') {
-                rightCellsCounter++;
-                pointsAt0 += i;
+                rightCount++;
+                rightCost += i; // each ball needs i steps to reach index 0
             }
         }
 
-        Cell actual = new Cell(boxes.charAt(0) == '1', rightCellsCounter, 0, pointsAt0);
-        ans[0] = pointsAt0;
+        // Initial state at index 0
+        // leftCount = number of balls already passed (to the left)
+        // rightCount = balls still to the right
+        // cost = current total cost for this position
+        State current = new State(boxes.charAt(0) == '1', rightCount, 0, rightCost);
+        ans[0] = rightCost;
 
+        // Traverse from index 1 to n-1
         for (int i = 1; i < n; i++) {
-            boolean b2 = boxes.charAt(i) == '1';
+            boolean hasBall = boxes.charAt(i) == '1';
 
-            int p2 = actual.p + actual.l - actual.r;
+            // Update cost:
+            // + current.leftCount → balls on the left move 1 step further
+            // - current.rightCount → balls on the right move 1 step closer
+            int newCost = current.cost + current.leftCount - current.rightCount;
 
-            p2 = actual.b ? p2 + 1 : p2;
+            // If the previous position had a ball, that ball is now on the left side
+            if (current.hasBall) {
+                newCost++;
+            }
 
-            int l2 = actual.b ? 1 + actual.l : actual.l;
+            // Update left ball count
+            int newLeftCount = current.hasBall ? current.leftCount + 1 : current.leftCount;
 
-            int r2 = b2 ? actual.r - 1 : actual.r;
+            // Update right ball count
+            int newRightCount = hasBall ? current.rightCount - 1 : current.rightCount;
 
-            ans[i] = p2;
-            actual = new Cell(b2, r2, l2, p2);
+            ans[i] = newCost;
+            current = new State(hasBall, newRightCount, newLeftCount, newCost);
         }
+
         return ans;
     }
 
-    static class Cell {
-        boolean b;
-        int r;
-        int l;
-        int p;
+    // Represents the state at a given index
+    static class State {
+        boolean hasBall;
+        int rightCount; // balls to the right
+        int leftCount; // balls to the left
+        int cost; // total cost for this index
 
-        Cell(boolean hasBox,
-                int right,
-                int left,
-                int point) {
-
-            this.b = hasBox;
-            this.r = right;
-            this.l = left;
-            this.p = point;
+        State(boolean hasBall, int rightCount, int leftCount, int cost) {
+            this.hasBall = hasBall;
+            this.rightCount = rightCount;
+            this.leftCount = leftCount;
+            this.cost = cost;
         }
     }
 }
