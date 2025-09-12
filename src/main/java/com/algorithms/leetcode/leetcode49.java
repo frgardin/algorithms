@@ -1,28 +1,32 @@
 package com.algorithms.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class leetcode49 {
 
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap<String, List<String>> m = new HashMap<>();
+        Map<String, List<String>> m = new HashMap<>();
+        List<List<String>> ans = new ArrayList<>();
 
         for (String s : strs) {
-            String stringSorted = s.chars().sorted()
-                    .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                    .toString();
-            if (m.containsKey(stringSorted)) {
-                m.get(stringSorted).add(s);
+            char[] cs = s.toCharArray();
+            Arrays.sort(cs);
+            String s2 = new String(cs);
+
+            if (m.containsKey(s2)) {
+                m.get(s2).add(s);
             } else {
-                LinkedList<String> l = new LinkedList<>();
+                List<String> l = new ArrayList<>();
                 l.add(s);
-                m.put(stringSorted, l);
+                m.put(s2, l);
+                ans.add(l);
             }
         }
 
-        return m.values().stream().collect(Collectors.toList());
+        return ans;
     }
 }
