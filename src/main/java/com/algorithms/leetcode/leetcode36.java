@@ -3,61 +3,38 @@ package com.algorithms.leetcode;
 import java.util.HashSet;
 
 public class leetcode36 {
-    
+
     public boolean isValidSudoku(char[][] board) {
-        HashSet<Character>[] row = new HashSet[9];
-        HashSet<Character>[] col = new HashSet[9];
-        HashSet<Character>[] subBox = new HashSet[9];
+        HashSet<Character>[] rows = new HashSet[9];
+        HashSet<Character>[] cols = new HashSet[9];
+        HashSet<Character>[] subBoxes = new HashSet[9];
 
         for (int i = 0; i < 9; i++) {
-            row[i] = new HashSet<>();
-            col[i] = new HashSet<>();
-            subBox[i] = new HashSet<>();
+            rows[i] = new HashSet<>();
+            cols[i] = new HashSet<>();
+            subBoxes[i] = new HashSet<>();
         }
 
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                char v = board[i][j];
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                char v = board[row][col];
+
                 if (v == '.')
                     continue;
 
-                int sId = getSubBoxId(i, j);
+                int subBox = (row / 3) * 3 + (col / 3);
 
-                if (subBox[sId].contains(v)) {
+                if (rows[row].contains(v) ||
+                        cols[col].contains(v) ||
+                        subBoxes[subBox].contains(v)) {
                     return false;
                 }
-                if (row[i].contains(v)) {
-                    return false;
-                }
-                if (col[j].contains(v)) {
-                    return false;
-                }
-                row[i].add(v);
-                col[j].add(v);
-                subBox[sId].add(v);
+
+                rows[row].add(v);
+                cols[col].add(v);
+                subBoxes[subBox].add(v);
             }
         }
         return true;
-
-    }
-
-    private static int getSubBoxId(int i, int j) {
-        if (i < 3 && j < 3)
-            return 0;
-        if (i < 3 && j < 6)
-            return 1;
-        if (i < 3 && j < 9)
-            return 2;
-        if (i < 6 && j < 3)
-            return 3;
-        if (i < 6 && j < 6)
-            return 4;
-        if (i < 6 && j < 9)
-            return 5;
-        if (i < 9 && j < 3)
-            return 6;
-        if (i < 9 && j < 6)
-            return 7;
-        return 8;
     }
 }
