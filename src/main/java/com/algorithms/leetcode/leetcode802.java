@@ -7,46 +7,39 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 //https://leetcode.com/problems/find-eventual-safe-states/
-// needs to improve time
+// WA
 public class leetcode802 {
 
-        public List<Integer> eventualSafeNodes(int[][] graph) {
+
+    public List<Integer> eventualSafeNodes(int[][] graph) {
         int n = graph.length;
-        List<Integer>[] rGraph = new ArrayList[n];
-        int[] degrees = new int[n];
-
-        for (int i =0;i<n;i++) {
-            rGraph[i]=new ArrayList<>();
-        }
-
-        for (int i =0;i<n;i++) {
-            for (int v:graph[i]) {
-                rGraph[v].add(i);
-                degrees[i]++;
-            }
-        }
-        
-        Queue<Integer> q = new ArrayDeque<>();
         List<Integer> ans = new ArrayList<>();
-        
-        for (int i=0;i<n;i++) {
-            if (degrees[i] == 0) {
-                q.offer(i);
+
+        for (int i =0;i<n;i++) {
+            if (!dfs(graph, new boolean[n], i, -1)) {
+                ans.add(i);
             }
         }
 
-        while (!q.isEmpty()) {
-            int cur = q.poll();
-            ans.add(cur);
-
-            for (int v:rGraph[cur]) {
-                if (--degrees[v] == 0) {
-                    q.offer(v);
-                }
-            }
-        }
-
-        Collections.sort(ans);
         return ans;
+    }
+
+    private static boolean dfs(int[][] graph, 
+                            boolean[] visited, 
+                            int i, 
+                            int parent) {
+
+        visited[i]=true;
+
+        for (int neighbor : graph[i]) {
+            if (!visited[neighbor]) {             
+                if (dfs(graph, visited, neighbor, i)) {
+                    return true;
+                }
+            } else if (neighbor != parent) {
+                return true;
+            }
+        }
+        return false;
     }
 }
