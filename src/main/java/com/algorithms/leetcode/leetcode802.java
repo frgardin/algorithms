@@ -1,22 +1,16 @@
 package com.algorithms.leetcode;
 
-import java.util.ArrayDeque;
-import java.util.Collections;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Queue;
+import java.util.List;
 
-//https://leetcode.com/problems/find-eventual-safe-states/
-// WA
 public class leetcode802 {
-
 
     public List<Integer> eventualSafeNodes(int[][] graph) {
         int n = graph.length;
         List<Integer> ans = new ArrayList<>();
 
-        for (int i =0;i<n;i++) {
-            if (!dfs(graph, new boolean[n], i, -1)) {
+        for (int i = 0; i < n; i++) {
+            if (!dfs(graph, new boolean[n], new boolean[n], i)) {
                 ans.add(i);
             }
         }
@@ -24,22 +18,31 @@ public class leetcode802 {
         return ans;
     }
 
-    private static boolean dfs(int[][] graph, 
-                            boolean[] visited, 
-                            int i, 
-                            int parent) {
+    private static boolean dfs(int[][] graph,
+            boolean[] visited,
+            boolean[] recStack,
+            int i) {
+        if (recStack[i])
+            return true;
+        if (visited[i])
+            return false;
 
-        visited[i]=true;
+        visited[i] = true;
+        recStack[i] = true;
 
         for (int neighbor : graph[i]) {
-            if (!visited[neighbor]) {             
-                if (dfs(graph, visited, neighbor, i)) {
-                    return true;
-                }
-            } else if (neighbor != parent) {
+
+            if (dfs(graph, visited, recStack, neighbor)) {
                 return true;
             }
         }
+        recStack[i] = false;
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[][] graph = new int[][] { {}, { 0, 2, 3, 4 }, { 3 }, { 4 }, {} };
+
+        new leetcode802().eventualSafeNodes(graph);
     }
 }
