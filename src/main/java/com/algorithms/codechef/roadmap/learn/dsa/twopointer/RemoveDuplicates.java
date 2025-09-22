@@ -37,5 +37,6 @@ public class RemoveDuplicates {
             System.out.println(s);
             System.out.println(sb);
         }
+        sc.close();
     }
 }
