@@ -21,6 +21,7 @@ public class DifferencePairs {
             System.out.println(diffPairs(a, n, b));
 
         }
+        sc.close();
     }
 
     private static int diffPairs(int[] a, int n, int b) {
