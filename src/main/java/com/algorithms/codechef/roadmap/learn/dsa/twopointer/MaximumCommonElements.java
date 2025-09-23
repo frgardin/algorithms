@@ -1,6 +1,7 @@
 package com.algorithms.codechef.roadmap.learn.dsa.twopointer;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class MaximumCommonElements {
 	
@@ -20,10 +21,22 @@ public class MaximumCommonElements {
 			
 			int ans = 0;
 			
-			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < n; j++) {
-					if (a[i] == b[j]) ans++;
-				}
+			Arrays.sort(a);
+			Arrays.sort(b);
+			
+			int ia = 0;
+			int ib = 0;
+			
+			while (ia <n && ib < n) {
+				if (a[ia] == b[ib]) {
+					ia++;
+					ib++;
+					ans++;
+				} else if(a[ia] > b[ib]) {
+					ib++;
+				} else {
+					ia++;
+				} 
 			}
 			System.out.println(ans);
 		}
