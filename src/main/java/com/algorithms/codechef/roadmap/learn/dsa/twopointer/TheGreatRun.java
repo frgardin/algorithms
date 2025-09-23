@@ -13,17 +13,17 @@ public class TheGreatRun {
             int n = sc.nextInt();
             int k = sc.nextInt();
 
-            int[] a = new int[n];
+            int[] arr = new int[n];
 
             for (int i = 0; i < n; i++)
-                a[i] = sc.nextInt();
+                arr[i] = sc.nextInt();
 
             int l = 0;
             int r = k - 1;
 
             int sum = 0;
             for (int i = l; i <= r; i++) {
-                sum += a[i];
+                sum += arr[i];
             }
 
             int ans = sum;
@@ -31,8 +31,8 @@ public class TheGreatRun {
             while (r < n - 1) {
                 ans = Math.max(ans, sum);
                 r++;
-                sum += a[r];
-                sum -= a[l];
+                sum += arr[r];
+                sum -= arr[l];
                 l++;
             }
             ans = Math.max(ans, sum);
