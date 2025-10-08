@@ -97,15 +97,22 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return an iterator over items in order from front to back
     public Iterator<Item> iterator() {
-    	return new Iterator<>() {
+        return new Iterator<>() {
+            private int current = head;
+
             @Override
             public boolean hasNext() {
-                return false;
+                return current <= tail && items[current] != null;
             }
 
             @Override
             public Item next() {
-                return null;
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                Item item = items[current];
+                current++;
+                return item;
             }
         };
     }
