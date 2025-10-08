@@ -1,5 +1,3 @@
-package com.algorithms.sedgewick;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
