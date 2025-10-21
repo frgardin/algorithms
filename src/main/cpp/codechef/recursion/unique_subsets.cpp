@@ -2,32 +2,38 @@
 
 using namespace std;
 
-vector<vector<int>> uniqueSubsets(vector<int>& multiset) {
-    // Write your code here
-    vector<vector<int>> first_one;
-    if (multiset.empty()) {
-        return first_one;
-    }
-    for (int i=0;i<=multiset.size();i++) {
-        vector<int> v;
-        for (int j=0;j<i;j++) {
-            v.push_back(multiset[j]);
+typedef vector<int> vi;
+typedef vector<vector<int>> vii;
+
+void backtrack(vi &multiset, int index, vi &cur, vii &ans) {
+    ans.push_back(cur);
+    
+    for (int i = index; i < multiset.size();i++) {
+        
+        if (i > index && multiset[i] == multiset[i-1]) {
+            continue;
         }
-        first_one.push_back(v);
+        
+        cur.push_back(multiset[i]);
+        
+        backtrack(multiset, i+1, cur, ans);
+        
+        cur.pop_back();
     }
-    multiset.erase(multiset.begin());
-    vector<vector<int>> second_one = uniqueSubsets(multiset);
-    vector<vector<int>> ans;
-    for (auto &x : first_one) {
-        ans.push_back(x);
-    }
-    for (auto &x : second_one) {
-        ans.push_back(x);
-    }
+}
+
+vii uniqueSubsets(vi &multiset) {
+    // Write your code here
+    vii ans;
+    vi cur;
+    
+    sort(multiset.begin(), multiset.end());
+    
+    backtrack(multiset, 0, cur, ans);
     return ans;
 }
 
-void printSubsets(vector<vector<int>>& subsets) {
+void printSubsets(vii& subsets) {
 
     sort(subsets.begin(), subsets.end());
     
@@ -47,12 +53,13 @@ int main() {
     int n;
     cin >> n;
     
-    vector<int> multiset(n);
+    vi multiset(n);
     for (int i = 0; i < n; ++i) {
         cin >> multiset[i];
     }
+    sort(multiset.begin(), multiset.end());
     
-    vector<vector<int>> result = uniqueSubsets(multiset);
+    vii result = uniqueSubsets(multiset);
     
     printSubsets(result);
 
