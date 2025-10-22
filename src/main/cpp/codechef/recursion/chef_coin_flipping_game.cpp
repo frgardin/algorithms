@@ -1,9 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef vector<vector<int>> vii;
-typedef vector<int> vi;
-
 void backtrack(int s, int i, int &cur, int &count) {
     if (cur == s) {
         count++;
