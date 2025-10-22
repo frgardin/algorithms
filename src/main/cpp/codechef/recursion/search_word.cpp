@@ -8,18 +8,18 @@ typedef vector<bool> vb;
 
 int dir[4][2] = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 
-bool dfs(vcc board, int i, int j, string word, int wordIndex, vbb visited) {
+bool dfs(vcc &board, int i, int j, string &word, int wordIndex, vbb &visited) {
     if (wordIndex >= word.size()) {
         return true;
     }
     visited[i][j]=true;
     for (auto d : dir) {
         int ni = i+d[0];
-        int nj = j+d[0];
+        int nj = j+d[1];
         
         if (
             ni >= 0 && ni < board.size() &&
-            nj >= 0 && nj < board.size() &&
+            nj >= 0 && nj < board[0].size() &&
             !visited[ni][nj] &&
             board[ni][nj] == word.at(wordIndex) &&
             dfs(board, ni, nj, word, wordIndex+1, visited)
@@ -34,9 +34,9 @@ bool dfs(vcc board, int i, int j, string word, int wordIndex, vbb visited) {
 bool wordSearch(vector<vector<char>>& board, string word) {
     // Write your code here
     for (int i =0;i<board.size();i++) {
-        for (int j =0;j<board.size();j++) {
+        for (int j =0;j<board[0].size();j++) {
             if (board[i][j] == word.at(0)) {
-                vb visitedLine(board.size(), false);
+                vb visitedLine(board[0].size(), false);
                 vbb visited(board.size(), visitedLine);
                 if (dfs(board, i, j, word, 1, visited)) {
                     return true;
